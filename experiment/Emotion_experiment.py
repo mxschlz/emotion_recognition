@@ -34,8 +34,7 @@ class EmotionDetectionExperiment(ExperimentLogic):
         pass
 
     def setup_experiment(self, info=None):
-        if self.setting.show_image:
-            self.devices["cam"].show_video()
+        pass
 
     def prepare_trial(self):
         self.trial_stop = False
