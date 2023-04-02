@@ -3,9 +3,10 @@ from labplatform.core import ExperimentSetting
 from labplatform.core import ExperimentLogic
 from labplatform.core import ExperimentData
 from labplatform.core import load_cohort
+from labplatform.config import get_config
 import slab
 import random
-from experiment import config as cfg
+from config import config as cfg
 from traits.api import Bool, Int, List, Str, Any
 
 
@@ -25,7 +26,7 @@ class EmotionDetectionExperiment(ExperimentLogic):
     trial_success = slab.Sound.tone()
     emotion_to_detect = Any()
     trial_stop = Bool(False)
-    results = slab.ResultsFile()
+    results = slab.ResultsFile(folder=get_config("DATA_ROOT"))
 
     def _devices_default(self):
         return {"cam": EmotionWebCam()}
